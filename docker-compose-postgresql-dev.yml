@@ -7,7 +7,7 @@ services:
     environment:
       POSTGRES_USER: wealcome
       POSTGRES_PASSWORD: wealcome
-      POSTGRES_DB: nextride_db
+      POSTGRES_DB: nextride_6-mars_db
     ports:
       - 5434:5432
     volumes:
