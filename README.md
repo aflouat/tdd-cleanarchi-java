@@ -26,7 +26,7 @@ La réservation est confirmée une fois qu'un Driver libre est assigné par le s
 - Si le Rider annule une course alors que le Driver est déjà en chemin, cela coûtera 5 euros de pénalité.
 - Une course déjà annulée ne peut être annulée à nouveau
 - Tant qu'un Driver n'est pas assigné à une réservation en cours, le Rider ne peut pas effectuer une autre réservation.
-  Si le Rider souhaite faire une autre réservation, il doit d'abord annuler la précédente.
+  Si le Rider souhaite faire une autre réservation, il doit d'abord annuler la précédente ou la planifier dans le futur.
 
 ## Driver Assignment Context
 
