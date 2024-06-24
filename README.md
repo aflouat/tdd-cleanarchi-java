@@ -19,7 +19,6 @@ La réservation est confirmée une fois qu'un Driver libre est assigné par le s
 - De Paris à l'extérieur de Paris : `10€`
 - D'un point extérieur à un autre point extérieur : `50€`
 
-
 2. **Prix par Kilomètre** : `0,5€` pour chaque kilomètre parcouru, quel que soit le trajet.
 
 
