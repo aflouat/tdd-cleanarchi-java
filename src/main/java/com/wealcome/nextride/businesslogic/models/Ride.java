@@ -1,4 +1,4 @@
-package com.wealcome.nextride.BusinessLogic.Models;
+package com.wealcome.nextride.businesslogic.models;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -17,6 +17,7 @@ public class Ride {
     private final String departure;
     private final String arrival;
     private final float distance;
+    private final boolean wantsUberX;
     private final BigDecimal price;
 
     public static Ride book(
@@ -25,9 +26,13 @@ public class Ride {
             String departure,
             String arrival,
             float distance,
+            boolean wantsUberX,
+            boolean isRiderBirthday,
             boolean isDepartureInParis,
             boolean isArrivalInParis
     ) {
+        if (distance < 3 && wantsUberX)
+            throw new IllegalArgumentException("UberX is only available for rides longer than 3km");
         var basePrice = 10;
         if(isArrivalInParis)
             basePrice = 2;
@@ -38,12 +43,15 @@ public class Ride {
                 basePrice = 50;
         }
         var price = basePrice + 0.5 * distance;
+        if(!isRiderBirthday && wantsUberX)
+            price += 5;
         return new Ride(
                 rideId,
                 riderId,
                 departure,
                 arrival,
                 distance,
+                wantsUberX,
                 BigDecimal.valueOf(price)
         );
     }

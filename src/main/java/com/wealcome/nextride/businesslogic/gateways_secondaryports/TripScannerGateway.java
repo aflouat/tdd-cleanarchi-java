@@ -1,4 +1,4 @@
-package com.wealcome.nextride.BusinessLogic.Models;
+package com.wealcome.nextride.businesslogic.gateways_secondaryports;
 
 public interface TripScannerGateway {
 

@@ -1,4 +1,7 @@
-package com.wealcome.nextride.BusinessLogic.Models;
+package com.wealcome.nextride.adapters.secondary.gateways.repositories;
+
+import com.wealcome.nextride.businesslogic.models.Ride;
+import com.wealcome.nextride.businesslogic.gateways_secondaryports.RideRepository;
 
 import java.util.ArrayList;
 import java.util.List;

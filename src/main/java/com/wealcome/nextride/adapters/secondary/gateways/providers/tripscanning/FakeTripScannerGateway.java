@@ -1,4 +1,6 @@
-package com.wealcome.nextride.BusinessLogic.Models;
+package com.wealcome.nextride.adapters.secondary.gateways.providers.tripscanning;
+
+import com.wealcome.nextride.businesslogic.gateways_secondaryports.TripScannerGateway;
 
 import java.util.HashMap;
 import java.util.Map;
