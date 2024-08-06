@@ -16,12 +16,9 @@ import java.util.UUID;
 public class RideController {
 
     private final BookRideUseCase bookRideUseCase;
-    private final RideRepository rideRepository;
 
-    public RideController(BookRideUseCase bookRideUseCase,
-                          RideRepository rideRepository) {
+    public RideController(BookRideUseCase bookRideUseCase) {
         this.bookRideUseCase = bookRideUseCase;
-        this.rideRepository = rideRepository;
     }
 
     @PostMapping("/rides")
@@ -36,7 +33,6 @@ public class RideController {
                         false
                 )
         );
-        System.out.println(((FakeRideRepository)rideRepository).rides());
         return ResponseEntity.created(URI.create("/rides/" + params.rideId())).build();
     }
 

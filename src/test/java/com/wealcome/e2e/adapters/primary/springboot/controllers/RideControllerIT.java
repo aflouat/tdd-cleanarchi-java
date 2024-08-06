@@ -1,18 +1,17 @@
-package e2e.adapters.primary.springboot.controllers;
+package com.wealcome.e2e.adapters.primary.springboot.controllers;
 
+import com.wealcome.e2e.AbstractBaseE2E;
 import com.wealcome.nextride.adapters.secondary.gateways.providers.tripscanning.FakeTripScannerGateway;
-import com.wealcome.nextride.adapters.secondary.gateways.repositories.FakeRideRepository;
-import com.wealcome.nextride.businesslogic.gateways_secondaryports.RideRepository;
+import com.wealcome.nextride.adapters.secondary.gateways.repositories.jpa.SpringJpaRideRepository;
+import com.wealcome.nextride.adapters.secondary.gateways.repositories.jpa.entities.RideJpaEntity;
 import com.wealcome.nextride.businesslogic.gateways_secondaryports.TripScannerGateway;
-import com.wealcome.nextride.businesslogic.models.Ride;
-import e2e.AbstractBaseE2E;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
-import static java.math.BigDecimal.valueOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -23,7 +22,7 @@ public class RideControllerIT extends AbstractBaseE2E {
     private MockMvc mockMvc;
 
     @Autowired
-    private RideRepository rideRepository;
+    private SpringJpaRideRepository springJpaRideRepository;
 
     @Autowired
     private TripScannerGateway tripScannerGateway;
@@ -48,15 +47,16 @@ public class RideControllerIT extends AbstractBaseE2E {
                                         """)
                 )
                 .andExpect(status().isCreated());
-        assertThat(((FakeRideRepository) rideRepository).rides()).containsExactly(
-                new Ride(
+        var rideJpaEntities = springJpaRideRepository.findAll();
+        assertThat(rideJpaEntities).containsExactly(
+                new RideJpaEntity(
                         UUID.fromString("f47b3b2d-3f3b-4f6d-8b0f-4f6d8b0f4f6d"),
                         UUID.fromString("a47b3b2d-3f3b-4f6d-8b0f-4f6d8b0f4f6d"),
                         "8 avenue Foch PARIS",
                         "18 avenue Foch PARIS",
                         3,
                         false,
-                        valueOf(3.5)
+                        new BigDecimal("3.50")
                 )
         );
     }

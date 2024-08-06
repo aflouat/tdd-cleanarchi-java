@@ -1,4 +1,4 @@
-package unit.kata;
+package com.wealcome.unit.kata;
 
 import com.wealcome.nextride.kata.PalindromesExtractor;
 import org.junit.jupiter.params.ParameterizedTest;

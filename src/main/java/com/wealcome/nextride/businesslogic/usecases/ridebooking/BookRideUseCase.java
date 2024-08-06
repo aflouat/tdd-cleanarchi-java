@@ -1,5 +1,6 @@
 package com.wealcome.nextride.businesslogic.usecases.ridebooking;
 
+import com.wealcome.nextride.businesslogic.models.DateTimeProvider;
 import com.wealcome.nextride.businesslogic.models.Ride;
 import com.wealcome.nextride.businesslogic.gateways_secondaryports.RideRepository;
 import com.wealcome.nextride.businesslogic.gateways_secondaryports.TripScannerGateway;
@@ -7,11 +8,14 @@ import com.wealcome.nextride.businesslogic.gateways_secondaryports.TripScannerGa
 public class BookRideUseCase {
     private final RideRepository rideRepository;
     private final TripScannerGateway tripScannerGateway;
+    private final DateTimeProvider dateTimeProvider;
 
     public BookRideUseCase(RideRepository rideRepository,
-                           TripScannerGateway tripScannerGateway) {
+                           TripScannerGateway tripScannerGateway,
+                           DateTimeProvider dateTimeProvider) {
         this.rideRepository = rideRepository;
         this.tripScannerGateway = tripScannerGateway;
+        this.dateTimeProvider = dateTimeProvider;
     }
 
     public void handle(BookRideUseCaseCommand command) {
@@ -28,7 +32,8 @@ public class BookRideUseCase {
                 command.wantsUberX(),
                 command.isRiderBirthday(),
                 isDepartureInParis,
-                isArrivalInParis
+                isArrivalInParis,
+                dateTimeProvider.now()
         );
         rideRepository.save(ride);
     }

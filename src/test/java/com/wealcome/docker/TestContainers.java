@@ -1,4 +1,4 @@
-package docker;
+package com.wealcome.docker;
 
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;

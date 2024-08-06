@@ -1,4 +1,4 @@
-package unit.mutationtestingexample;
+package com.wealcome.unit.mutationtestingexample;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
