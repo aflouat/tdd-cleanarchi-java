@@ -1,7 +1,6 @@
 package com.wealcome.nextride.adapters.primary.springboot.configuration;
 
 import com.wealcome.nextride.adapters.secondary.gateways.providers.tripscanning.DemoFakeTripScannerGateway;
-import com.wealcome.nextride.adapters.secondary.gateways.providers.tripscanning.FakeTripScannerGateway;
 import com.wealcome.nextride.adapters.secondary.gateways.repositories.FakeRideRepository;
 import com.wealcome.nextride.businesslogic.gateways_secondaryports.RideRepository;
 import com.wealcome.nextride.businesslogic.gateways_secondaryports.TripScannerGateway;
